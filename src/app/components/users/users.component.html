@@ -1,0 +1,31 @@
+<!-- Main Layout-->
+<div class="container marginTopBottom">
+    <!-- Search -->
+    <form class="searchMargin">
+        <div class="input-group">
+            <input type="text" name="search" [(ngModel)]="queryString" class="form-control"
+                placeholder="Search Username">
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="button" (click)="search()">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+    <!-- List of Users -->
+    <ng-container class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>List of Users</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users; let i = index" (click)="specificUserRepository(user)">
+                    <td>{{user.login}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </ng-container>
+</div>
